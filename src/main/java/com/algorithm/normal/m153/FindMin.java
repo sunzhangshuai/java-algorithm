@@ -1,10 +1,10 @@
-package com.normal.m153;
+package com.algorithm.normal.m153;
 
 /**
  * FindMin:
  *
  * @author sunchen
- * @date 2021/1/5 10:45 обнГ
+ * @date 2021/1/5 10:45 О©╫О©╫О©╫О©╫
  */
 public class FindMin {
     public int handler(int[] nums){
