@@ -30,7 +30,7 @@ public class ReverseBetween {
         //链表截断的前一个结点
         ListNode beforeStop = sentry;
         //需要反转的第一个结点
-        ListNode start = null;
+        ListNode afterStop = head;
         int index = 1;
 
         while (node != null) {
@@ -38,7 +38,7 @@ public class ReverseBetween {
             if (index < m) {
                 beforeStop = node;
             } else if (index == m) {
-                start = node;
+                afterStop = node;
 
                 node.next = pre;
                 pre = node;
@@ -49,7 +49,7 @@ public class ReverseBetween {
                 node.next = pre;
                 //串联关系
                 beforeStop.next = node;
-                start.next = next;
+                afterStop.next = next;
                 break;
             }
             node = next;

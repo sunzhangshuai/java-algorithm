@@ -22,25 +22,25 @@ public class GenerateMatrix {
         int up = 0;
         int down = n-1;
         int value = 1;
-        int a[][] = new int[n][n];
+        int result[][] = new int[n][n];
         while (up <= down && left <= right) {
             for (int i = left; i <= right; i++) {
-                a[up][i] = value++;
+                result[up][i] = value++;
             }
             up++;
             for (int i = up; i <= down; i++) {
-                a[i][right] = value++;
+                result[i][right] = value++;
             }
             right--;
             for (int i = right; i >= left && value - 1 < Math.pow(n,2); i--) {
-                a[down][i] = value++;
+                result[down][i] = value++;
             }
             down--;
             for (int i = down; i >= up && value - 1 <  Math.pow(n,2); i--) {
-                a[i][left] = value++;
+                result[i][left] = value++;
             }
             left++;
         }
-        return a;
+        return result;
     }
 }
