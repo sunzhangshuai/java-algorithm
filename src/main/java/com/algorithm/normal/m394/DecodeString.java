@@ -1,78 +1,60 @@
 package com.algorithm.normal.m394;
 
-import java.util.ArrayList;
+
 import java.util.LinkedList;
-import java.util.List;
+
 
 /**
- * DecodeString:
+ * DecodeString: 字符串解码
+ * 
+ * 给定一个经过编码的字符串，返回它解码后的字符串。
+ * 编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+ * 你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+ * 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+ * 示例 1:
+ * 输入：s = "3[a]2[bc]"
+ * 输出："aaabcbc"
  *
  * @author sunchen
  * @date 2021/1/19 11:32 下午
  */
 public class DecodeString {
-    LinkedList<String> list = new LinkedList();
-    StringBuffer newSb = new StringBuffer();
     public String decodeString(String s) {
+        LinkedList<Integer> digestList = new LinkedList<>();
+        LinkedList<String> letterList = new LinkedList<>();
         char[] chars = s.toCharArray();
+        StringBuffer sb = new StringBuffer();
+        int digest = 0;
         for (char i : chars) {
-            //如果是数字
-            if (Character.isDigit(i) || Character.isLetter(i) || i == '[') {
-                list.addLast(String.valueOf(i));
-            } else {
-                //出站，并且按照次数生成对应的字符串
-                String data = list.pollLast();
-                StringBuffer sb = new StringBuffer();
-                LinkedList<String> ss = new LinkedList();
-                while (!data.equals("[")){
-                    sb.append(data);
-                    ss.addFirst(data);
-                    data = list.pollLast();
+            //数字
+            if (Character.isDigit(i)) {
+                digest = digest*10+(i-48);
+            } else if (Character.isLetter(i)) {
+                //字母
+                sb.append(i);
+            } else if (i == '[') {
+                digestList.addLast(digest);
+                letterList.addLast(sb.toString());
+                digest = 0;
+                sb = new StringBuffer();
+            } else if (i == ']') {
+                int value = digestList.pollLast();
+                String str = letterList.pollLast();
+                StringBuilder subStr = new StringBuilder();
+                for (int x = 0; x < value; x++) {
+                    subStr.append(sb.toString());
                 }
-                LinkedList<String> value = new LinkedList<>();
-                while (data.compareTo("1") >= 0 && data.compareTo("9") <= 0){
-                    value.addFirst(data);
-                    data = list.pollLast();
-                }
-                if (data != null) {
-                    list.addLast(data);
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                for (String ff:value) {
-                    stringBuffer.append(ff);
-                }
-                Integer count = Integer.valueOf(stringBuffer.toString());
-                List<String> ddd = new ArrayList<>();
-                int start = newSb.length();
-                for (int z = 0; z < count; z++) {
-                    for (String va:ss) {
-                        ddd.add(va);
-                        newSb.append(va);
-                    }
-                    //newSb.append(sb);
-                }
-                if (!list.isEmpty()) {
-                    for (String s1:ddd) {
-                        list.addLast(s1);
-                    }
-                    //把原来添加的删除掉
-                    newSb.delete(start, start+ddd.size());
-                }
+                sb = new StringBuffer().append(str).append(subStr);
             }
         }
-        if (!list.isEmpty()) {
-            for (int i = 0; i < list.size(); i++) {
-                newSb.append(list.get(i));
-            }
-        }
-        return newSb.toString();
+        return sb.toString();
     }
 
     public static void main(String[] args) {
 
 
         DecodeString dd = new DecodeString();
-        System.out.println(dd.decodeString("2[abc]3[cd]ef"));;
+        System.out.println(dd.decodeString("3[a]2[bc]"));;
 
 
     }
