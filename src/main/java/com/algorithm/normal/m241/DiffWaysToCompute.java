@@ -30,20 +30,7 @@ public class DiffWaysToCompute {
                 List<Integer> rightList = diffWaysToCompute(input.substring(i + 1));
                 for (Integer left : leftList) {
                     for (Integer right : rightList) {
-                        switch (sub) {
-                            case "+":
-                                result.add(left + right);
-                                break;
-                            case "-":
-                                result.add(left - right);
-                                break;
-                            case "*":
-                                result.add(left * right);
-                                break;
-                            case "/":
-                                result.add(left / right);
-                                break;
-                        }
+                        result.add(calResult(sub, left, right));
                     }
 
                 }
@@ -52,10 +39,20 @@ public class DiffWaysToCompute {
         return result;
     }
 
-//    public static boolean isInteger(String str) {
-//        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
-//        return pattern.matcher(str).matches();
-//    }
+    public static int calResult(String sub, int left, int right){
+        switch (sub) {
+            case "+":
+                return left + right;
+            case "-":
+                return left - right;
+            case "*":
+                return left * right;
+            case "/":
+                return left / right;
+            default:
+                return 0;
+        }
+    }
 
     public static boolean isInteger(String str) {
         for (int i = str.length(); --i >= 0; ) {
