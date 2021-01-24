@@ -41,8 +41,7 @@ public class MaxNumber {
         int[] stack = new int[k];
         int top = -1;
         int remain = length - k;
-        for (int i = 0; i < length; i++) {
-            int num = nums[i];
+        for (int num : nums) {
             while (top >= 0 && stack[top] < num && remain > 0) {
                 top--;
                 remain--;
