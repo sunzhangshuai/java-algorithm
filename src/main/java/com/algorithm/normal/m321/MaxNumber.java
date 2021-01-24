@@ -1,7 +1,7 @@
 package com.algorithm.normal.m321;
 
 /**
- * MaxNumber:
+ * MaxNumber:拼接最大数
  * 给定长度分别为 m 和 n 的两个数组，其元素由 0-9 构成，表示两个自然数各位上的数字。现在从这两个数组中选出 k (k <= m + n) 个数字拼接成一个新的数，要求从同一个数组中取出的数字保持其在原数组中的相对顺序。
  * 求满足该条件的最大数。结果返回一个表示该最大数的长度为 k 的数组。
  * 说明: 请尽可能地优化你算法的时间和空间复杂度。
@@ -15,9 +15,13 @@ public class MaxNumber {
         int[] maxSubsequence = new int[k];
         int start = Math.max(0, k - n), end = Math.min(k, m);
         for (int i = start; i <= end; i++) {
+            // 获取num1中的最大数
             int[] sub1 = maxSub(nums1, i);
+            // 获取num2中的最大数
             int[] sub2 = maxSub(nums2, k - i);
+            // 合并两个最大值----》最大数
             int[] curMaxSubsequence = merge(sub1, sub2);
+            // 和当前的最大值做比较
             if (compare(curMaxSubsequence, 0, maxSubsequence, 0) > 0) {
                 System.arraycopy(curMaxSubsequence, 0, maxSubsequence, 0, k);
             }
@@ -79,7 +83,7 @@ public class MaxNumber {
     }
 
     /**
-     * 比较两个数组大小
+     * 从指定下标开始 比较两个数组大小
      * @param sub1
      * @param index1
      * @param sub2
