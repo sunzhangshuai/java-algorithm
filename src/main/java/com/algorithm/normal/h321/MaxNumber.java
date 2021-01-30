@@ -1,4 +1,4 @@
-package com.algorithm.normal.m321;
+package com.algorithm.normal.h321;
 
 /**
  * MaxNumber:拼接最大数

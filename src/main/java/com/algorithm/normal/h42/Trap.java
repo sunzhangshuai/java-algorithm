@@ -1,7 +1,4 @@
-package com.algorithm.normal.m42;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.algorithm.normal.h42;
 
 /**
  * Trap:
