@@ -59,12 +59,12 @@ public class FourSums {
                         high--;
                     }
                 }
-                while (j < nums.length - 1 && nums[j] == nums[j + 1]) {
+                while (j < nums.length - 2 && nums[j] == nums[j + 1]) {
                     j++;
                 }
             }
 
-            while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+            while (i < nums.length - 3 && nums[i] == nums[i + 1]) {
                 i++;
             }
         }
