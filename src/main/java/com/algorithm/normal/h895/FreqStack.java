@@ -7,9 +7,7 @@ import java.util.Stack;
 /**
  * FreqStack: 最大频率栈
  * 实现 FreqStack，模拟类似栈的数据结构的操作的一个类。
- * <p>
  * FreqStack 有两个函数：
- * <p>
  * push(int x)，将整数 x 推入栈中。
  * pop()，它移除并返回栈中出现最频繁的元素。
  * 如果最频繁的元素不只一个，则移除并返回最接近栈顶的元素。
