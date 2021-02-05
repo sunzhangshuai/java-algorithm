@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SpiralOrder:
+ * SpiralOrder: 螺旋矩阵
  * 给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
  * 输入:
  * [
- *  [ 1, 2, 3 ],
- *  [ 4, 5, 6 ],
- *  [ 7, 8, 9 ]
+ * [ 1, 2, 3 ],
+ * [ 4, 5, 6 ],
+ * [ 7, 8, 9 ]
  * ]
  * 输出: [1,2,3,6,9,8,7,4,5]
  *
@@ -25,7 +25,7 @@ public class SpiralOrder {
         int right = matrix[0].length - 1;
         int up = 0;
         int down = matrix.length - 1;
-        while (up <= down && left <= right){
+        while (up <= down && left <= right) {
             for (int i = left; i <= right; i++) {
                 data.add(matrix[up][i]);
             }
