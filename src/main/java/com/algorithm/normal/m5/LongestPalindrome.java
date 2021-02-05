@@ -3,6 +3,7 @@ package com.algorithm.normal.m5;
 /**
  * LongestPalindrome:  最长回文子串
  * 给你一个字符串 s，找到 s 中最长的回文子串
+ *
  * @author sunchen
  * @date 2021/1/25 9:59 下午
  */
@@ -11,7 +12,8 @@ public class LongestPalindrome {
     int index;
     // 计算回文最大长度
     int len;
-    public  String longestPalindrome(String s) {
+
+    public String longestPalindrome(String s) {
         if (s.length() < 2) {
             return s.substring(0, 1);
         }
@@ -20,7 +22,7 @@ public class LongestPalindrome {
             // bab
             palindromeHelper(i, i, s);
             // abba
-            palindromeHelper(i, i+1, s);
+            palindromeHelper(i, i + 1, s);
         }
         return s.substring(index, index + len);
     }
