@@ -45,10 +45,10 @@ public class Partition {
 
     public boolean isPalindrome(String s){
         char[] chars = s.toCharArray();
-        String reverse = "";
+        StringBuilder reverse = new StringBuilder();
         for (int i = chars.length - 1; i >= 0; i--) {
-            reverse += chars[i];
+            reverse.append(chars[i]);
         }
-        return reverse.equals(s);
+        return reverse.toString().equals(s);
     }
 }
