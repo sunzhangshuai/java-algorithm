@@ -57,6 +57,7 @@ public class MaxNumber {
 
     /**
      * 合并两个数组 得到的数最大
+     *
      * @param sub1
      * @param sub2
      * @return
@@ -83,6 +84,7 @@ public class MaxNumber {
 
     /**
      * 从指定下标开始 比较两个数组大小
+     *
      * @param sub1
      * @param index1
      * @param sub2
