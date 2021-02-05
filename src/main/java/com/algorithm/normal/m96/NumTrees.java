@@ -10,7 +10,6 @@ import java.util.HashMap;
  * @date 2021/1/18 10:39 下午
  */
 public class NumTrees {
-
     HashMap<Integer, Integer> map = new HashMap<>();
 
     public int numTrees(int n) {
