@@ -20,7 +20,7 @@ import java.util.Stack;
 public class FreqStack {
     Map<Integer, Integer> freq;
     Map<Integer, Stack<Integer>> group;
-    int maxFreq = 0;
+    int maxFreq;
 
     public FreqStack() {
         freq = new HashMap<>();
