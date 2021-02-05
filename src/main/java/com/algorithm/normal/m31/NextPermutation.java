@@ -2,16 +2,16 @@ package com.algorithm.normal.m31;
 
 /**
  * NextPermutation: 下一个排列
- *  
+ * <p>
  * 实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
- *  
+ * <p>
  * 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
- *  
+ * <p>
  * 必须 原地 修改，只允许使用额外常数空间。
- *  
- *  
+ * <p>
+ * <p>
  * 示例 1：
- *  
+ * <p>
  * 输入：nums = [1,2,3]
  * 输出：[1,3,2]
  *
@@ -45,23 +45,23 @@ public class NextPermutation {
 
         // 第三步，从「index后面」的节点中，找一个比「index位置的值」大的数里面的最小值，和index交换。
         // index为-1时，不需要交换
-        int littleMaxIndex = binarySearch(nums, swapIndex+1, nums.length-1, nums[swapIndex]);
+        int littleMaxIndex = binarySearch(nums, swapIndex + 1, nums.length - 1, nums[swapIndex]);
         swap(nums, swapIndex, littleMaxIndex);
     }
 
-    public int binarySearch(int [] d, int start, int end, int target){
+    public int binarySearch(int[] d, int start, int end, int target) {
         while (start <= end) {
-            int mid = (start + end)/2;
+            int mid = (start + end) / 2;
             if (d[mid] <= target) {
-                start = mid +1;
-            }else{
+                start = mid + 1;
+            } else {
                 end = mid - 1;
             }
         }
         return start;
     }
 
-    public void swap (int [] nums, int i , int j) {
+    public void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
