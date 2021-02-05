@@ -1,7 +1,7 @@
 package com.algorithm.normal.m82;
 
 /**
- * DeleteDuplicates:
+ * DeleteDuplicates:删除所有含有重复数字的节点
  * 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字
  * 输入: 1->2->3->3->4->4->5
  * 输出: 1->2->5
@@ -10,7 +10,7 @@ package com.algorithm.normal.m82;
  * @date 2021/1/5 10:45 ����
  */
 public class DeleteDuplicates {
-    public ListNode handler(ListNode head){
+    public ListNode handler(ListNode head) {
         if (head == null) {
             return null;
         }
@@ -23,9 +23,9 @@ public class DeleteDuplicates {
             while (currentNode.next != null && currentNode.val == currentNode.next.val) {
                 currentNode = currentNode.next;
             }
-            if(pre.next != currentNode){
+            if (pre.next != currentNode) {
                 pre.next = currentNode.next;
-            }else{
+            } else {
                 //确定currentCode没有重复，更新pre
                 pre = currentNode;
             }
