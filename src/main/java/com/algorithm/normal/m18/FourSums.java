@@ -14,7 +14,6 @@ import java.util.List;
  * @date 2020/7/15 2:57 下午
  */
 public class FourSums {
-
     public List<List<Integer>> fourSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             int tempIndex = i;
