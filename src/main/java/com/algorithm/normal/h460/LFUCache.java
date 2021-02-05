@@ -1,4 +1,4 @@
-package com.algorithm.normal.s460;
+package com.algorithm.normal.h460;
 
 import java.util.HashMap;
 import java.util.LinkedList;
