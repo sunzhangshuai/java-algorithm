@@ -29,7 +29,7 @@ public class FourSums {
             nums[tempIndex] = temp;
         }
         List<List<Integer>> list = new ArrayList<>();
-        int i = 0;
+        int i;
         for (i = 0; i < nums.length - 3; i++) {
             int threeSum = target - nums[i];
             for (int j = i + 1; j < nums.length - 2; j++) {
@@ -43,7 +43,7 @@ public class FourSums {
                     } else if (sum > twoSum) {
                         high--;
                     } else {
-                        List<Integer> result = new ArrayList<Integer>();
+                        List<Integer> result = new ArrayList<>();
                         result.add(nums[i]);
                         result.add(nums[j]);
                         result.add(nums[low]);
