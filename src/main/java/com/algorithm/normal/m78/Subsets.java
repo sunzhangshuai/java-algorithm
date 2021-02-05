@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Subsets:
+ * Subsets: 子集
  * 给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
  * 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
  *
@@ -14,6 +14,7 @@ import java.util.List;
 public class Subsets {
     /**
      * 取出原来的，放入新的
+     *
      * @param nums
      * @return
      */
@@ -38,7 +39,7 @@ public class Subsets {
         return getList(nums, nums.length);
     }
 
-    public static List<List<Integer>> getList(int [] nums, int length){
+    public static List<List<Integer>> getList(int[] nums, int length) {
         if (length == 0) {
             List<Integer> list = new ArrayList<>();
             List<List<Integer>> result = new ArrayList<>();
@@ -46,19 +47,19 @@ public class Subsets {
             return result;
         }
         // 获取到n-1个数的结果集
-        List<List<Integer>> result = getList(nums, length-1);
+        List<List<Integer>> result = getList(nums, length - 1);
         // 遍历结果集，拷贝出每一个元素，加入第n个数，再和原结果集合并
         int num = result.size();
         for (int i = 0; i < num; i++) {
             List<Integer> list = new ArrayList<>(result.get(i));
-            list.add(nums[length-1]);
+            list.add(nums[length - 1]);
             result.add(list);
         }
         return result;
     }
 
     public static void main(String[] args) {
-        int [] nums = new int[]{1,2,3};
+        int[] nums = new int[]{1, 2, 3};
         System.out.println(subsets2(nums));
     }
 }
