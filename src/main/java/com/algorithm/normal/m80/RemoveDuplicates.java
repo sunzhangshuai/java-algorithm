@@ -10,8 +10,8 @@ package com.algorithm.normal.m80;
  */
 public class RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
-        if (nums.length <= 2) {
-            return 2;
+        if (nums.length == 0) {
+            return 0;
         }
         boolean flag = false;
         int slow = 0;
