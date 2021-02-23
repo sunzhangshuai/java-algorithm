@@ -1,8 +1,9 @@
 package com.algorithm.normal.m889;
 
 /**
- * ConstructFromPrePost:
- *
+ * ConstructFromPrePost:根据前序和后序遍历构造二叉树
+ * 返回与给定的前序和后序遍历匹配的任何二叉树。
+ *  pre 和 post 遍历中的值是不同的正整数。
  * @author sunchen
  * @date 2021/2/21 7:03 下午
  */
